@@ -490,7 +490,7 @@ GROUPS.forEach(g=>{
         <div class="frow"><span class="flab">Date</span><span class="fval">${fmt(c.date)}</span> &nbsp;&nbsp; <span class="flab" style="min-width:0;margin-right:8px;">Location</span><span class="fval">${c.city}</span> ${stChip(c.status)}</div>
         <div class="blurb">${BLURBS[c.victim]||""}</div>
         <div class="frow"><span class="flab">Charge</span><span class="fval">${c.charge}</span></div>
-        <div class="frow"><span class="flab">Coverage</span><span class="fval">${c.coverage} &middot; <a href="${c.src}">source</a></span></div>
+        <div class="frow"><span class="flab">Source</span><span class="fval"><a href="${c.src}">open &#8599;</a></span></div>
       </div>
     </div>`;
   });
@@ -532,14 +532,14 @@ const COVERAGE=[
  {n:"NPR", u:"https://www.npr.org/2026/07/08/nx-s1-5886150/why-the-death-of-ms-student-athlete-nolan-wells-is-capturing-national-attention", f:"img/cov-npr.jpg"},
  {n:"NBC News", u:"https://www.nbcnews.com/news/us-news/beach-party-call-help-missing-pictures-day-nolan-wells-death-rcna588747", f:"img/cov-nbc.jpg"},
  {n:"Washington Post", u:"https://www.washingtonpost.com/nation/2026/08/06/three-people-charged-with-threatening-judge-witnesses-nolan-wells-case/", f:"img/cov-wapo.jpg"},
- {n:"HuffPost", u:"https://www.huffpost.com/entry/nolan-wells-death-social-media-theories_n_6a566b59e4b0d75ea1c2416a", f:"img/cov-huffpost.jpg"},
+ {n:"HuffPost", u:"https://www.huffpost.com/entry/parents-of-black-teen-found-dead-in-mississippi-water-want-answers_n_6a551f37e4b0107f0db719e8", f:"img/cov-huffpost.jpg"},
  {n:"Newsweek", u:"https://www.newsweek.com/nolan-wells-investigation-three-charged-allegations-explained-12293028", f:"img/cov-newsweek.jpg"},
  {n:"Clarion Ledger", u:"https://x.com/clarionledger/status/2082851269694115871", f:"img/cov-clarion.jpg"},
- {n:"TMZ", u:"https://www.tmz.com/people/nolan-xavier-wells/", f:"img/cov-tmz.jpg"},
- {n:"Rolling Stone", u:"https://www.rollingstone.com/culture/culture-news/nolan-wells-video-1235592423/", f:"img/cov-rollingstone.jpg"},
+ {n:"TMZ", u:"https://www.tmz.com/2026/07/22/ben-crump-announces-nolan-wells-independent-autopsy-results/", f:"img/cov-tmz.jpg"},
+ {n:"Rolling Stone", u:"https://www.rollingstone.com/culture/culture-news/nolan-wells-ben-crump-al-sharpton-press-conference-1235591827/", f:"img/cov-rollingstone.jpg"},
  {n:"PBS News", u:"https://www.pbs.org/newshour/nation/attorney-for-nolan-wells-family-says-experts-will-review-a-july-4-boat-distress-call", f:"img/cov-pbs.jpg"},
  {n:"nola.com", u:"https://www.nola.com/news/crime_police/celebrities-speak-out-nolan-wells/article_2cf6c107-1c0a-46a3-8107-23ebfff8eeed.html", f:"img/cov-nola.jpg"},
- {n:"WLOX", u:"https://www.wlox.com/2026/07/07/timeline-heres-what-we-know-about-disappearance-death-18-year-old-nolan-wells/", f:"img/cov-wlox.jpg"}
+ {n:"WLOX", u:"https://www.wlox.com/2026/07/06/body-found-horn-island-during-search-missing-18-year-old-nolan-wells/", f:"img/cov-wlox.jpg"}
 ];
 const gal=document.getElementById("covgallery");
 const cf=document.getElementById("covframe"), ci=document.getElementById("covimg"), cp=document.getElementById("covph");
