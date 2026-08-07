@@ -176,6 +176,7 @@
   #s2 .floorline{text-align:center; margin-left:auto; margin-right:auto; margin-top:36px;}
   .closer .accent{color:#ff4555 !important;}
   #coverline{font-size:14px; color:#c9c7c2 !important; max-width:56ch; margin-top:14px; line-height:1.6; border-left:2px solid #ff4555; padding-left:14px;}
+  .julystamp{font-family:'Playfair Display', Georgia, serif; font-weight:900; font-size:clamp(26px,4.6vw,42px); line-height:1; color:#ff4555 !important; margin:2px 0 12px;}
   /* click-to-navigate arrow */
   .nav-arrow{display:block; position:static; margin:36px auto 20px; width:44px; height:44px; border-radius:50%; border:1px solid #23232c; background:#121218 !important; color:#ff4555 !important; font-size:20px; cursor:pointer; animation:bob 1.6s ease-in-out infinite; line-height:1;}
   .nav-arrow:hover{border-color:#ff4555;}
@@ -194,15 +195,16 @@
 
 <section class="wrap" id="s1">
   <h2>The America you were shown</h2>
+  <div class="julystamp">July 2026</div>
   <div class="sub">Part one &middot; One drowning, no suspect, a month of coverage</div>
   <div class="card">
-    <a href="https://www.cnn.com/2026/07/09/us/nolan-xavier-wells-what-we-know"><img class="igshot" src="img/nolan-wells.jpg" alt="Nolan Wells" loading="lazy" onerror="imgFallback(this)"><span class="phbox">img/nolan-wells.jpg goes here</span></a>
+    <a href="https://www.cnn.com/2026/07/09/us/nolan-xavier-wells-what-we-know"><img class="igshot" src="nolan-wells.jpg" alt="Nolan Wells" loading="lazy" onerror="imgFallback(this)"><span class="phbox">nolan-wells photo goes here</span></a>
     <p>On the Fourth of July, Nolan Wells, an 18-year-old black man, took a boat trip to Horn Island, Mississippi with a group of white friends. He stayed on the island when they left. Two days later he was found dead in the water. Authorities say the likely cause is accidental drowning and, a month into the investigation, they do not suspect foul play. There is no suspect, because investigators do not believe there was a crime.</p>
     <p>The country treated the case as a referendum on American racism anyway: sustained national coverage, a celebrity chorus, a National Action Network press conference, an independent autopsy commissioned by the family. His family, represented by attorney Ben Crump, alleges racial bias in the investigation. No charges have been announced in his death. By early August, the only criminal charges connected to the case were against three people accused of threatening witnesses, officials, and a judge.</p>
     <p><b>So we got curious. How dangerous is America, really, between black and white? We took the same month, July 1 through July 31, and verified every interracial homicide we could find against charging documents, in both directions. Here is what we found.</b></p>
   </div>
   <div class="card">
-    <p class="attrib" style="margin-bottom:10px;">One month of coverage. Tap an outlet to switch. Tap the image to open the story.</p>
+    <p style="font-family:'Playfair Display', Georgia, serif; font-size:22px; font-weight:700; color:#e8e6e1 !important; margin:0 0 12px;">The national coverage of Nolan Wells</p>
     <a id="covframe" href="https://www.cnn.com/2026/07/09/us/nolan-xavier-wells-what-we-know" target="_blank" rel="noopener">
       <img id="covimg" src="img/cov-cnn.jpg" alt="Coverage screenshot">
       <span id="covph" class="phbox">CNN &middot; screenshot pending &middot; tap to open the story</span>
@@ -215,6 +217,7 @@
 
 <section class="wrap" id="s2">
   <h2>The America that&rsquo;s ignored</h2>
+  <div class="julystamp">July 2026</div>
   <div class="sub">Part two &middot; Interracial homicides verified to charging documents</div>
 
   <div class="board">
@@ -395,7 +398,7 @@ const ini = s => s.replace(/^Dep\. U\.S\. Marshal /,"").split(/[\s,]+/).filter(B
 function imgFallback(el){
   if(!el.dataset.q){
     const base=el.getAttribute("src").replace(/\.[a-z]+$/i,"");
-    const bases=base.indexOf("img/")===0?[base,base.slice(4)]:[base,"img/"+base];
+    const bases=base.indexOf("img/")===0?[base.slice(4),base]:[base,"img/"+base];
     const exts=["jpg","png","webp","jpeg"];
     el.dataset.q=JSON.stringify(bases.flatMap(b=>exts.map(e=>b+"."+e)).slice(1));
   }
@@ -497,8 +500,8 @@ GROUPS.forEach(g=>{
     html+=`<div class="case g-${g.key}" id="${cid(c)}">
       <div class="cnum">${ri+1}</div>
       <div class="pair">
-        <div class="pcell"><div class="plab">Accused</div><a class="plink" href="${ph.sL||c.src}" title="View photo source"><div class="pwrap"><div class="pph">${ini(c.accused)}</div>${ph.s?`<img class="pimg" src="${ph.s}" alt="accused" loading="lazy" onerror="imgFallback(this)">`:""}</div></a><div class="pname">${c.accused.split(", and")[0]}</div></div>
-        <div class="pcell"><div class="plab">Victim</div><a class="plink" href="${ph.vL||c.src}" title="View photo source"><div class="pwrap"><div class="pph">${ini(c.victim)}</div>${ph.v?`<img class="pimg" src="${ph.v}" alt="${c.victim}" loading="lazy" onerror="imgFallback(this)">`:""}</div></a><div class="pname">${c.victim}, ${c.vAge}</div></div>
+        <div class="pcell"><div class="plab">Accused</div><a class="plink" href="${ph.sL||c.src}" title="View photo source"><div class="pwrap"><div class="pph">${ini(c.accused)}</div>${ph.s?`<img class="pimg" src="${ph.s.replace(/^img\//,'')}" alt="accused" loading="lazy" onerror="imgFallback(this)">`:""}</div></a><div class="pname">${c.accused.split(", and")[0]}</div></div>
+        <div class="pcell"><div class="plab">Victim</div><a class="plink" href="${ph.vL||c.src}" title="View photo source"><div class="pwrap"><div class="pph">${ini(c.victim)}</div>${ph.v?`<img class="pimg" src="${ph.v.replace(/^img\//,'')}" alt="${c.victim}" loading="lazy" onerror="imgFallback(this)">`:""}</div></a><div class="pname">${c.victim}, ${c.vAge}</div></div>
       </div>
       <div class="fields">
         <div class="frow"><span class="flab">Date</span><span class="fval">${fmt(c.date)}</span> &nbsp;&nbsp; <span class="flab" style="min-width:0;margin-right:8px;">Location</span><span class="fval">${c.city}</span> ${stChip(c.status)}</div>
@@ -562,7 +565,7 @@ function resolveCov(c, cb){
   if(c.resolved){ if(cb) cb(c.resolved); return; }
   if(c.failed){ if(cb) cb(null); return; }
   const base=c.f.replace(/\.[a-z]+$/i,"");
-  const bases=base.indexOf("img/")===0?[base,base.slice(4)]:[base,"img/"+base];
+  const bases=base.indexOf("img/")===0?[base.slice(4),base]:[base,"img/"+base];
   const exts=["jpg","png","webp","jpeg"];
   const cands=bases.flatMap(b=>exts.map(e=>b+"."+e));
   let k=0;
