@@ -342,7 +342,7 @@ const PHOTOS = {
   "Dep. U.S. Marshal Drew Hanson":{s:"img/frazier-accused.jpg", v:"img/hanson-victim.jpg", sL:"https://www.kalb.com/2026/07/14/officials-release-identities-us-marshal-killed-alexandria-suspect-charged-his-death/", vL:"https://www.newsnationnow.com/crime/deputy-marshal-drew-hanson-killed-louisiana-identified/"},
   "Rebecca Knox":{s:"img/henriques-accused.jpg", v:"img/knox-victim.jpg", sL:"https://www.wtkr.com/news/in-the-community/eastern-shore/northampton-man-arrested-after-shooting-rampage-to-face-murder-charges-ncso", vL:"https://gunmemorial.org/2026/07/13/rebecca-knox"},
   "Sean Pendergrast":{s:"img/salaam-accused.jpg", v:"img/pendergrast-victim.jpg"},
-  "Luke Hollifield":{s:"img/mack-debose-accused.jpg", v:"img/hollifield-victim.jpg", sL:"https://www.whio.com/news/local/bond-set-2-men-charged-with-murder-road-rage-shooting/Q2K454UNU5FGBPRHMLFFWNTECQ/"},
+  "Luke Hollifield":{s:"img/mack-debose-accused.jpg", v:"img/hollifield-victim.jpg", sL:"https://www.miamivalleyjails.org/JAILBOOKING.ASPX?CJIS_OR_PARTY_ID=C39415627&JAILBOOKING_ID=62118593"},
   "Matthew Konwinski II":{s:"img/bethea-accused.jpg", v:"img/konwinski-victim.jpg"},
   "Adam Wilwerding":{s:"img/binessu-accused.jpg", v:"img/wilwerding-victim.jpg", sL:"https://www.fox9.com/news/st-paul-triple-homicide-charges-suspect-shot-victims-over-65-parking-contract", vL:"https://www.startribune.com/from-acts-of-kindness-to-beaming-smiles-st-paul-apartment-employees-killed-in-shooting-are-remembered/601870559"},
   "Dena Silcox":{s:"img/binessu-accused.jpg", v:"img/silcox-victim.jpg", sL:"https://www.fox9.com/news/st-paul-triple-homicide-charges-suspect-shot-victims-over-65-parking-contract", vL:"https://www.startribune.com/from-acts-of-kindness-to-beaming-smiles-st-paul-apartment-employees-killed-in-shooting-are-remembered/601870559"},
@@ -384,9 +384,14 @@ const counted = c => c.status==="verified" || c.status==="pending";
 const cid = c => "c-"+c.victim.toLowerCase().replace(/[^a-z0-9]+/g,"-");
 const ini = s => s.replace(/^Dep\. U\.S\. Marshal /,"").split(/[\s,]+/).filter(Boolean).slice(0,2).map(w=>w[0].toUpperCase()).join("");
 function imgFallback(el){
-  const tries=["png","webp","jpeg"];
-  const n=+(el.dataset.n||0);
-  if(n<tries.length){ el.dataset.n=n+1; el.src=el.src.replace(/\.[a-z]+$/i,"."+tries[n]); return; }
+  if(!el.dataset.q){
+    const base=el.getAttribute("src").replace(/\.[a-z]+$/i,"");
+    const bases=base.indexOf("img/")===0?[base,base.slice(4)]:[base,"img/"+base];
+    const exts=["jpg","png","webp","jpeg"];
+    el.dataset.q=JSON.stringify(bases.flatMap(b=>exts.map(e=>b+"."+e)).slice(1));
+  }
+  const q=JSON.parse(el.dataset.q);
+  if(q.length){ el.dataset.q=JSON.stringify(q.slice(1)); el.src=q[0]; return; }
   const ph=el.nextElementSibling;
   if(ph && ph.classList && ph.classList.contains("phbox")){ el.style.display="none"; ph.style.display="flex"; }
   else el.remove();
@@ -549,10 +554,14 @@ function covShow(c, pill){
   if(pill) pill.classList.add("on");
   ci.style.display="none"; cp.style.display="flex";
   cp.textContent=c.n+" \u00b7 screenshot pending \u00b7 tap to open the story";
-  const exts=["jpg","png","webp","jpeg"]; let k=0;
+  const base=c.f.replace(/\.[a-z]+$/i,"");
+  const bases=base.indexOf("img/")===0?[base,base.slice(4)]:[base,"img/"+base];
+  const exts=["jpg","png","webp","jpeg"];
+  const cands=bases.flatMap(b=>exts.map(e=>b+"."+e));
+  let k=0;
   const tryNext=()=>{
-    if(k>=exts.length) return;
-    const src=c.f.replace(/\.[a-z]+$/i,"."+exts[k]); k++;
+    if(k>=cands.length) return;
+    const src=cands[k++];
     const p=new Image();
     p.onload=()=>{ ci.src=src; ci.style.display="block"; cp.style.display="none"; };
     p.onerror=tryNext;
