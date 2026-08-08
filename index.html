@@ -1532,12 +1532,12 @@
 
   <div class="board">
     <div class="panel">
-      <div class="lbl">Black on White</div>
+      <div class="lbl">Black on White Homicides</div>
       <div class="num bw" id="num-bw">0</div>
       <div class="pend"><b id="pend-bw">0</b> more in verification</div>
     </div>
     <div class="panel">
-      <div class="lbl">White on Black</div>
+      <div class="lbl">White on Black Homicides</div>
       <div class="num wb" id="num-wb">0</div>
       <div class="pend"><b id="pend-wb">0</b> more in verification</div>
     </div>
@@ -2517,8 +2517,8 @@ function bar(label,v,p,color){
   </div>`;
 }
 document.getElementById("bars").innerHTML =
-  bar("Black on White Homicides", vBW, pBW, "#4a9eff") +
-  bar("White on Black Homicides", vWB, pWB, "#e544ff") +
+  bar("Black on White", vBW, pBW, "#4a9eff") +
+  bar("White on Black", vWB, pWB, "#e544ff") +
   (SHOW_EXTRAS ? bar("Other pairings", vOT, pOT, "#f5c542") : "");
 
 /* ledger */
@@ -2640,6 +2640,9 @@ COVERAGE.forEach((c,i)=>{
   const pill=document.createElement("span"); pill.className="chip"; pill.style.cursor="pointer";
   pill.textContent=c.n;
   pill.addEventListener("click",()=>covShow(c,pill));
+  if(window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches){
+    pill.addEventListener("mouseenter",()=>covShow(c,pill));
+  }
   gal.appendChild(pill);
   resolveCov(c);
   if(i===0) covShow(c,pill);
