@@ -1492,6 +1492,21 @@
   .divider-line{width:100% !important; height:1px !important; background:#23232c !important; transition:none !important;}
 
 </style>
+<script>
+function imgFallback(el){
+  if(!el.dataset.q){
+    const base=el.getAttribute("src").replace(/\.[a-z]+$/i,"");
+    const bases=base.indexOf("img/")===0?[base.slice(4),base]:[base,"img/"+base];
+    const exts=["jpg","png","webp","jpeg"];
+    el.dataset.q=JSON.stringify(bases.flatMap(b=>exts.map(e=>b+"."+e)).slice(1));
+  }
+  const q=JSON.parse(el.dataset.q);
+  if(q.length){ el.dataset.q=JSON.stringify(q.slice(1)); el.src=q[0]; return; }
+  const ph=el.nextElementSibling;
+  if(ph && ph.classList && ph.classList.contains("phbox")){ el.style.display="none"; ph.style.display="flex"; }
+  else el.remove();
+}
+</script>
 </head>
 <body>
 
@@ -2435,19 +2450,6 @@ const NDAYS = Math.round((D2-D1)/86400000)+1;
 const counted = c => c.status==="verified" || c.status==="pending";
 const cid = c => "c-"+c.victim.toLowerCase().replace(/[^a-z0-9]+/g,"-");
 const ini = s => s.replace(/^Dep\. U\.S\. Marshal /,"").split(/[\s,]+/).filter(Boolean).slice(0,2).map(w=>w[0].toUpperCase()).join("");
-function imgFallback(el){
-  if(!el.dataset.q){
-    const base=el.getAttribute("src").replace(/\.[a-z]+$/i,"");
-    const bases=base.indexOf("img/")===0?[base.slice(4),base]:[base,"img/"+base];
-    const exts=["jpg","png","webp","jpeg"];
-    el.dataset.q=JSON.stringify(bases.flatMap(b=>exts.map(e=>b+"."+e)).slice(1));
-  }
-  const q=JSON.parse(el.dataset.q);
-  if(q.length){ el.dataset.q=JSON.stringify(q.slice(1)); el.src=q[0]; return; }
-  const ph=el.nextElementSibling;
-  if(ph && ph.classList && ph.classList.contains("phbox")){ el.style.display="none"; ph.style.display="flex"; }
-  else el.remove();
-}
 const n = (dir,st) => CASES.filter(c=>c.dir===dir && c.status===st).length;
 
 const vBW=n("bw","verified"), pBW=n("bw","pending"), vWB=n("wb","verified"), pWB=n("wb","pending");
