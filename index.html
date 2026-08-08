@@ -1484,6 +1484,13 @@
   #objections{padding-bottom:0 !important;}
   .section-divider{margin:36px 0 0;}
 
+
+  /* ---- tail spacing: neutralise the CA 120px animated divider ---- */
+  #objections{border-bottom:none !important; padding-bottom:0 !important;}
+  .section-divider{position:static !important; height:auto !important; min-height:0 !important; display:block !important; overflow:visible !important; margin:36px 0 0 !important;}
+  .section-divider::before, .section-divider::after{display:none !important; content:none !important;}
+  .divider-line{width:100% !important; height:1px !important; background:#23232c !important; transition:none !important;}
+
 </style>
 </head>
 <body>
