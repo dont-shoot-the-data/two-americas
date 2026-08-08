@@ -1572,8 +1572,8 @@
   <h2>How it perpetuates</h2>
   <div class="sub">The same summer, outside the window</div>
   <div class="card">
-    <p class="quote"><span class="q">&ldquo;We know the investigation and everything that followed would have been different if Nolan Wells were white and his friends were black. Nolan and his family deserve justice.&rdquo;</span></p>
-    <p class="attrib">Ms. Rachel (Rachel Griffin Accurso), 5.2M followers &middot; <a href="https://www.instagram.com/p/DbUF7zLNWKP/">Instagram, July 27</a> &middot; 122,670 likes as of Aug 6 &middot; <a href="https://www.foxnews.com/media/childrens-youtube-star-ms-rachel-stirs-controversy-racial-claim-nolan-wells-investigation">coverage</a></p>
+    <p style="font-family:system-ui, sans-serif; font-size:14px; margin-bottom:10px;">Ms. Rachel is one of the most-watched children&rsquo;s educators in the world: 20.5 million YouTube subscribers, roughly 14 million views a month, and 5.2 million followers on Instagram, where she told them the Nolan Wells investigation would have gone differently if the races had been reversed. None of the nineteen killings above drew a post from her, or from anyone with that reach.</p>
+    <p class="attrib">Instagram, July 27, 2026 &middot; 122,670 likes as of Aug 6 &middot; <a href="https://www.instagram.com/p/DbUF7zLNWKP/">original post</a> &middot; <a href="https://www.foxnews.com/media/childrens-youtube-star-ms-rachel-stirs-controversy-racial-claim-nolan-wells-investigation">coverage</a> &middot; subscriber and view counts per <a href="https://hypeauditor.com/youtube/UCG2CL6EUjG8TVT1Tpl9nJdg/">public channel analytics</a>, August 2026</p>
     <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DbUF7zLNWKP/" data-instgrm-version="14" style="max-width:420px; min-width:280px; margin:6px auto 14px;"></blockquote>
     <script async src="https://www.instagram.com/embed.js"></script>
   </div>
@@ -2517,14 +2517,14 @@ function bar(label,v,p,color){
   </div>`;
 }
 document.getElementById("bars").innerHTML =
-  bar("Black on White", vBW, pBW, "#4a9eff") +
-  bar("White on Black", vWB, pWB, "#e544ff") +
+  bar("Black on White Homicides", vBW, pBW, "#4a9eff") +
+  bar("White on Black Homicides", vWB, pWB, "#e544ff") +
   (SHOW_EXTRAS ? bar("Other pairings", vOT, pOT, "#f5c542") : "");
 
 /* ledger */
 const GROUPS=[
-  {key:"bw", lab:"Black on White", col:"#4a9eff", filt:c=>c.dir==="bw"&&counted(c)},
-  {key:"wb", lab:"White on Black", col:"#e544ff", filt:c=>c.dir==="wb"&&counted(c)},
+  {key:"bw", lab:"Black on White Homicides", col:"#4a9eff", filt:c=>c.dir==="bw"&&counted(c)},
+  {key:"wb", lab:"White on Black Homicides", col:"#e544ff", filt:c=>c.dir==="wb"&&counted(c)},
   {key:"ot", lab:"Other pairings", col:"#f5c542", filt:c=>c.dir==="other"&&counted(c)},
   {key:"hd", lab:"On hold, direction unverified", col:"#8a8894", filt:c=>c.status==="hold"},
   {key:"ns", lab:"Not counted, no suspect identified", col:"#8a8894", filt:c=>c.status==="nosuspect"},
