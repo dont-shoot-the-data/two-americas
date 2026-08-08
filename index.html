@@ -117,7 +117,7 @@
   .attrib{font-size:12px; color:#8a8894 !important; font-family:system-ui, sans-serif;}
 
   /* footer */
-  footer{padding-top:56px; padding-bottom:96px; color:#8a8894 !important; font-size:12px;}
+  footer{padding-top:56px; padding-bottom:40px; color:#8a8894 !important; font-size:12px;}
   footer p{margin:0 0 10px; max-width:76ch;}
   .brand{color:#e8e6e1 !important; letter-spacing:.16em; text-transform:uppercase; font-size:11px; margin-top:22px;}
 
@@ -250,7 +250,7 @@
   :root{--bg-primary:#0a0a0f;--bg-card:#12121a;--bg-card-hover:#1a1a28;--accent-red:#e63946;--accent-gold:#e8853a;--accent-blue:#4682B4;--accent-cyan:#00d4ff;--text-primary:#e8e8ec;--text-secondary:#8a8a9a;--text-muted:#55556a;--border:#2a2a3a;--white:#ffffff;--black-race:#7a8a9a;--hispanic-race:#e8853a;--white-race:#4682B4;--other-race:#e8d44d;}
   .divider-text,.section-title,.section-desc,.section-label{opacity:1 !important;transform:none !important;}
   .divider-text{font-family:'Playfair Display',Georgia,serif;font-size:clamp(22px,4vw,32px);color:#e8e6e1 !important;text-align:center;margin:8px 0 4px;}
-  .section-divider{margin:30px 0 6px;}
+  .section-divider{margin:22px 0 4px;}
   .divider-line{height:1px;background:#23232c;width:100%;}
   #objections{padding-top:8px;}
   #objections p,#objections li,#objections td,#objections th,#objections .obj-banner-title{font-family:'DM Sans',system-ui,sans-serif;}
@@ -1472,6 +1472,18 @@
   50%      { opacity: 1;    text-shadow: 0 0 18px rgba(230,57,70,0.5); color: var(--accent-red); }
 }
 
+
+  /* ---- objections: layout guarantees ---- */
+  .obj-sources-modal{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.88);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px;}
+  .obj-sources-modal.active{display:flex !important;}
+  .obj-sources-modal-inner{background:#12121a;border:1px solid #2a2a3a;border-radius:12px;max-width:720px;width:100%;max-height:80vh;overflow:auto;padding:26px 24px;position:relative;}
+  .obj-sources-modal-inner h3{font-family:'DM Sans',system-ui,sans-serif;font-size:17px;color:#e8e8ec;margin:0 0 8px;}
+  .obj-sources-modal-close{position:absolute;top:8px;right:14px;background:none;border:none;color:#8a8a9a;font-size:26px;line-height:1;cursor:pointer;}
+  .obj-container{max-width:900px;margin:0 auto;padding:0 20px;}
+  .methodology-section{padding:0;}
+  #objections{padding-bottom:0 !important;}
+  .section-divider{margin:36px 0 0;}
+
 </style>
 </head>
 <body>
@@ -1602,44 +1614,6 @@
     <!-- ========== OBJECTION 1 ========== -->
     <div class="obj-banner obj-collapsed" onclick="toggleObj(this)">
       <span class="obj-banner-num">Objection 1</span>
-      <span class="obj-banner-title">&ldquo;These Are Arrests, Not Convictions&rdquo;</span>
-      <span class="obj-banner-arrow">&#9660;</span>
-    </div>
-    <div class="obj-content" style="display:none;">
-      <p>Correct. The pattern being examined isn&rsquo;t any single case &mdash; it&rsquo;s the distribution across <strong>every agency in California, every year, for a quarter century</strong>. Random bias doesn&rsquo;t produce stable patterns.</p>
-
-      <div class="obj-table-wrap">
-        <table class="obj-table">
-          <thead><tr>
-            <th>Year</th>
-            <th>Hispanic</th><th>Black</th><th>White</th><th>Other</th>
-            <th class="obj-partition">Hisp&nbsp;%</th>
-            <th class="obj-hl">Black&nbsp;%</th>
-            <th>White&nbsp;%</th><th>Other&nbsp;%</th>
-          </tr></thead>
-          <tbody>
-            <tr><td><strong>2020</strong></td><td>754</td><td>462</td><td>279</td><td>102</td><td class="obj-partition">47.2%</td><td class="obj-hl"><strong>28.9%</strong></td><td>17.5%</td><td>6.4%</td></tr>
-            <tr><td><strong>2021</strong></td><td>726</td><td>421</td><td>250</td><td>109</td><td class="obj-partition">48.2%</td><td class="obj-hl"><strong>28.0%</strong></td><td>16.6%</td><td>7.2%</td></tr>
-            <tr><td><strong>2022</strong></td><td>688</td><td>447</td><td>273</td><td>77</td><td class="obj-partition">46.3%</td><td class="obj-hl"><strong>30.1%</strong></td><td>18.4%</td><td>5.2%</td></tr>
-            <tr><td><strong>2023</strong></td><td>689</td><td>389</td><td>220</td><td>76</td><td class="obj-partition">50.1%</td><td class="obj-hl"><strong>28.3%</strong></td><td>16.0%</td><td>5.5%</td></tr>
-            <tr><td><strong>2024</strong></td><td>629</td><td>389</td><td>212</td><td>75</td><td class="obj-partition">48.2%</td><td class="obj-hl"><strong>29.8%</strong></td><td>16.2%</td><td>5.7%</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div style="text-align:center;margin:6px 0 14px;">
-        <button class="obj-sources-btn" onclick="openCASourcesModal()">&#128269; Verify Any Year &middot; 25 CA AG Reports</button>
-      </div>
-
-      <div class="obj-highlight">
-        <strong>Black arrests stay within a 3-point band for five straight years.</strong> FBI national data 2015&ndash;2019 shows the same pattern: Black offenders were 53&ndash;56% of known-race murder offenders every year (<a href="https://ucr.fbi.gov/crime-in-the-u.s/2019/crime-in-the-u.s.-2019/topic-pages/expanded-homicide" target="_blank" rel="noopener" style="color:var(--accent-red);text-decoration:underline;">FBI Expanded Homicide Data, 2019</a>; White includes Hispanic offenders, a UCR limitation). The stability is the signal.
-      </div>
-    </div>
-    <!-- /OBJECTION 1 -->
-
-    <!-- ========== OBJECTION 2 ========== -->
-    <div class="obj-banner obj-collapsed" onclick="toggleObj(this)">
-      <span class="obj-banner-num">Objection 2</span>
       <span class="obj-banner-title">&ldquo;Arrest Data Reflects Law Enforcement Racial Bias&rdquo;</span>
       <span class="obj-banner-arrow">&#9660;</span>
     </div>
@@ -1716,6 +1690,44 @@
     </div>
     <!-- /OBJECTION 2 -->
 
+    <!-- ========== OBJECTION 2 ========== -->
+    <div class="obj-banner obj-collapsed" onclick="toggleObj(this)">
+      <span class="obj-banner-num">Objection 2</span>
+      <span class="obj-banner-title">&ldquo;These Are Arrests, Not Convictions&rdquo;</span>
+      <span class="obj-banner-arrow">&#9660;</span>
+    </div>
+    <div class="obj-content" style="display:none;">
+      <p>Correct. The pattern being examined isn&rsquo;t any single case &mdash; it&rsquo;s the distribution across <strong>every agency in California, every year, for a quarter century</strong>. Random bias doesn&rsquo;t produce stable patterns.</p>
+
+      <div class="obj-table-wrap">
+        <table class="obj-table">
+          <thead><tr>
+            <th>Year</th>
+            <th>Hispanic</th><th>Black</th><th>White</th><th>Other</th>
+            <th class="obj-partition">Hisp&nbsp;%</th>
+            <th class="obj-hl">Black&nbsp;%</th>
+            <th>White&nbsp;%</th><th>Other&nbsp;%</th>
+          </tr></thead>
+          <tbody>
+            <tr><td><strong>2020</strong></td><td>754</td><td>462</td><td>279</td><td>102</td><td class="obj-partition">47.2%</td><td class="obj-hl"><strong>28.9%</strong></td><td>17.5%</td><td>6.4%</td></tr>
+            <tr><td><strong>2021</strong></td><td>726</td><td>421</td><td>250</td><td>109</td><td class="obj-partition">48.2%</td><td class="obj-hl"><strong>28.0%</strong></td><td>16.6%</td><td>7.2%</td></tr>
+            <tr><td><strong>2022</strong></td><td>688</td><td>447</td><td>273</td><td>77</td><td class="obj-partition">46.3%</td><td class="obj-hl"><strong>30.1%</strong></td><td>18.4%</td><td>5.2%</td></tr>
+            <tr><td><strong>2023</strong></td><td>689</td><td>389</td><td>220</td><td>76</td><td class="obj-partition">50.1%</td><td class="obj-hl"><strong>28.3%</strong></td><td>16.0%</td><td>5.5%</td></tr>
+            <tr><td><strong>2024</strong></td><td>629</td><td>389</td><td>212</td><td>75</td><td class="obj-partition">48.2%</td><td class="obj-hl"><strong>29.8%</strong></td><td>16.2%</td><td>5.7%</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="text-align:center;margin:6px 0 14px;">
+        <button class="obj-sources-btn" onclick="openCASourcesModal()">&#128269; Verify Any Year &middot; 25 CA AG Reports</button>
+      </div>
+
+      <div class="obj-highlight">
+        <strong>Black arrests stay within a 3-point band for five straight years.</strong> FBI national data 2015&ndash;2019 shows the same pattern: Black offenders were 53&ndash;56% of known-race murder offenders every year (<a href="https://ucr.fbi.gov/crime-in-the-u.s/2019/crime-in-the-u.s.-2019/topic-pages/expanded-homicide" target="_blank" rel="noopener" style="color:var(--accent-red);text-decoration:underline;">FBI Expanded Homicide Data, 2019</a>; White includes Hispanic offenders, a UCR limitation). The stability is the signal.
+      </div>
+    </div>
+    <!-- /OBJECTION 1 -->
+
     <!-- ========== OBJECTION 3 ========== -->
     <div class="obj-banner obj-collapsed" onclick="toggleObj(this)">
       <span class="obj-banner-num">Objection 3</span>
@@ -1729,10 +1741,22 @@
 
       <p>The statistic is about the tiny population of overturned convictions, not about the much larger population of committed homicides. The reason the exonerations are about half Black is the same reason the convictions are about half Black: Black Americans are the identified offender in roughly half of known-race homicides nationally.</p>
 
-      <div class="obj-figure">
-        <a href="https://exonerationregistry.org/sites/exonerationregistry.org/files/documents/Updated%20CP%20-%20Race%20Report%20Preview.pdf" target="_blank"><img src="nre-exonerations-by-crime.png" alt="NRE exonerations by crime type and race, 1989-2022."></a>
-        <div class="obj-figure-caption">Source: <a href="https://exonerationregistry.org/sites/exonerationregistry.org/files/documents/Updated%20CP%20-%20Race%20Report%20Preview.pdf" target="_blank">National Registry of Exonerations, 2022 Report</a>.</div>
-      </div>
+      <p><b>The Registry&rsquo;s own breakdown, all exonerations by crime:</b></p>
+      <a href="https://exonerationregistry.org/sites/exonerationregistry.org/files/documents/Updated%20CP%20-%20Race%20Report%20Preview.pdf" target="_blank" rel="noopener" class="nre-link"><table class="nre-table">
+        <thead><tr><th></th><th>White</th><th>Black</th><th>Hispanic</th><th>Other</th><th>Total</th></tr></thead>
+        <tbody>
+          <tr><td>Murder <span>(1,167)</span></td><td>32%</td><td>55%</td><td>12%</td><td>2%</td><td>100%</td></tr>
+          <tr><td>Sexual Assault <span>(350)</span></td><td>33%</td><td>59%</td><td>7%</td><td>1%</td><td>100%</td></tr>
+          <tr><td>Child Sex Abuse <span>(310)</span></td><td>60%</td><td>28%</td><td>10%</td><td>2%</td><td>100%</td></tr>
+          <tr><td>Robbery <span>(151)</span></td><td>19%</td><td>64%</td><td>15%</td><td>2%</td><td>100%</td></tr>
+          <tr><td>Other Violent Crimes <span>(342)</span></td><td>42%</td><td>39%</td><td>13%</td><td>6%</td><td>100%</td></tr>
+          <tr><td>Drug Crimes <span>(554)</span></td><td>16%</td><td>69%</td><td>14%</td><td>1%</td><td>100%</td></tr>
+          <tr><td>White Collar <span>(77)</span></td><td>79%</td><td>10%</td><td>3%</td><td>8%</td><td>100%</td></tr>
+          <tr><td>Other Non-Violent Crimes <span>(249)</span></td><td>28%</td><td>52%</td><td>16%</td><td>5%</td><td>100%</td></tr>
+          <tr class="nre-total"><td>All Crimes (3,200)</td><td>33%</td><td>53%</td><td>12%</td><td>2%</td><td>100%</td></tr>
+        </tbody>
+      </table></a>
+      <div class="chart-note" style="margin-top:6px;">Source: <a href="https://exonerationregistry.org/sites/exonerationregistry.org/files/documents/Updated%20CP%20-%20Race%20Report%20Preview.pdf" target="_blank" rel="noopener">National Registry of Exonerations, 2022 Report</a> &middot; tap the table to open it.</div>
 
       <div class="obj-table-wrap">
         <table class="obj-table" style="max-width:620px;margin:16px auto">
@@ -2305,7 +2329,7 @@
 <div class="section-divider">
   <div class="divider-line"></div>
 </div>
-<p style="margin-top:26px;"><b>Citations.</b> Case discovery ran on sweeps of mainstream news reporting, official police and prosecutor releases, court and jail booking records, and victim memorial pages, plus an independent full-month sweep of mainstream and official sources. Additional case leads came from two publicly circulated crime trackers, the National Conservative interracial-homicide tracker and Kenn Gividen&rsquo;s Daily Kenn list; both were invaluable for matching, and thanks are owed to them. Every case above was then independently re-verified against court records, police releases, booking records, and published photographs. Entries that could not be verified were excluded.</p>
+<p style="margin-top:36px;margin-bottom:0;"><b>Citations.</b> Case discovery ran on sweeps of mainstream news reporting, official police and prosecutor releases, court and jail booking records, and victim memorial pages, plus an independent full-month sweep of mainstream and official sources. Additional case leads came from two publicly circulated crime trackers, the National Conservative interracial-homicide tracker and Kenn Gividen&rsquo;s Daily Kenn list. A special thank you to both: their lists surfaced at least one case this project&rsquo;s own sweeps missed, which is counted above, and were invaluable for matching throughout. Every case above was then independently re-verified against court records, police releases, booking records, and published photographs. Entries that could not be verified were excluded.</p>
 </footer>
 
 <script>
@@ -2334,6 +2358,7 @@ const CASES = [
   {date:"2026-07-13", city:"Nassawadox, VA", victim:"Rebecca Knox", vAge:37, accused:"Trevor Henriques, 45", charge:"premeditated murder x2; no bond", dir:"bw", status:"verified", coverage:"regional", src:"https://shoredailynews.com/headlines/henriques-officially-charged-with-murdering-mother-firlfriend-in-northampton-shooting-cases/"},
   {date:"2026-07-12", city:"Irondale, AL", victim:"Andrew Cole", vAge:33, accused:"Laderrick Broadnax, 23", charge:"capital murder; no bond", dir:"bw", status:"verified", coverage:"regional", src:"https://www.wbrc.com/2026/07/15/man-charged-with-capital-murder-irondale-double-shooting/"},
   {date:"2026-07-11", city:"Panama City, FL", victim:"Lucas Daughtry", vAge:23, accused:"Preston Roulhac, 31", charge:"murder", dir:"bw", status:"verified", coverage:"regional + national pickup", src:"https://www.mypanhandle.com/news/local-news/bay-county/panama-city/police-identify-man-killed-in-panama-city-shooting-suspect-could-face-additional-charges/"},
+  {date:"2026-07-31", city:"Lafayette, LA", victim:"Samuel Miley", vAge:15, accused:"Nicholas Williams, 20", charge:"second-degree murder; $500,000 bond", dir:"bw", status:"verified", coverage:"local", src:"https://www.kadn.com/news/crime/man-arrested-in-lafayette-shooting-that-killed-15-year-old/article_636f8e21-23f8-4ace-a067-480f17d3a352.html"},
   {date:"2026-07-03", city:"Toledo, OH", victim:"Nicholas Kuhl", vAge:43, accused:"Brayon Syph, 41", charge:"murder, felonious assault; $1.1M bond", dir:"bw", status:"verified", coverage:"local only", src:"https://www.wtol.com/article/news/crime/man-fatally-shot-suspect-brayon-syph-arrested-hours-later-driving-victims-car/512-8def1abf-4edf-453d-ab62-cf5e50b97e1f"},
   {date:"2026-07-02", city:"El Paso, TX", victim:"Christopher Brandon Steven", vAge:32, accused:"Nicholas Wells, 26", charge:"murder; self-defense asserted", dir:"bw", status:"hold", coverage:"local + national digital pickup", src:"https://www.ktsm.com/news/man-dead-after-fight-escalates-to-shooting-in-west-el-paso/"},
   {date:"2026-07-31", city:"Portland, OR", victim:"Stephan Varlamov", vAge:30, accused:"Jacob Ryan Clement, 45", charge:"second-degree murder", dir:"wb", status:"hold", coverage:"local only", src:"https://www.portland.gov/police/news/2026/7/31/update-suspicious-death-confirmed-be-homicide-suspect-arrested-murder"},
@@ -2358,6 +2383,7 @@ const CASES = [
 const WINDOW_START = "2026-07-01", WINDOW_END = "2026-07-31";
 const SHOW_EXTRAS = false; /* set true to display other pairings, holds, and unsolved */
 const PHOTOS = {
+  "Samuel Miley":{s:"img/williams-accused.jpg", v:"img/miley-victim.jpg", sL:"https://www.kadn.com/news/crime/man-arrested-in-lafayette-shooting-that-killed-15-year-old/article_636f8e21-23f8-4ace-a067-480f17d3a352.html", vL:"https://gunmemorial.org/2026/07/31/samuel-miley"},
   "Nicholas Kuhl":{s:"img/syph-accused.jpg", v:"img/kuhl-victim.jpg"},
   "Christopher Brandon Steven":{s:"img/nicholas-wells-accused.jpg", v:"img/steven-victim.jpg", sL:"https://www.aol.com/news/man-dead-fight-escalates-shooting-191914781.html", vL:"https://cbs4local.com/newsletter-daily/family-remembers-christopher-stevens-as-walgreens-shooting-investigation-continues"},
   "Lucas Daughtry":{s:"img/roulhac-accused.jpg", v:"img/daughtry-victim.jpg", sL:"https://www.walb.com/2026/08/05/were-gonna-take-care-this-lucas-parents-panama-city-murder-victim-pursue-legal-action-after-officer-fired/", vL:"https://gunmemorial.org/2026/07/11/lucas-delane-daughtry"},
@@ -2379,6 +2405,7 @@ const PHOTOS = {
   "Daryl Lowry":{s:"img/moore-accused.jpg", v:"img/lowry-victim.jpg", sL:"https://www.wrdw.com/2026/07/31/family-daryl-lowry-speak-today-about-teens-modoc-death-foster-care/", vL:"https://lawandcrime.com/crime/teen-foster-children-stabbed-13-year-old-boy-who-just-arrived-then-held-him-underwater-in-a-lake-until-he-drowned-police/"}
 };
 const BLURBS = {
+  "Samuel Miley":"Miley was shot multiple times on Sherwood Drive on a Friday afternoon and pronounced dead at the scene. Williams was arrested days later and charged with second-degree murder, held on $500,000 bond. Police say they are still working to determine what happened between the two men before the shooting.",
   "Nicholas Kuhl":"Kuhl was found shot to death in his apartment during a welfare check; hours later police stopped Syph driving Kuhl's car with a pistol on him. He is charged with murder and felonious assault, held on $1.1 million bond. No motive has been released.",
   "Christopher Brandon Steven":"A dispute over a handicap parking spot followed Steven into a Walgreens, where court documents say Wells threw the first punch, then shot Steven three times, twice after he fell. Wells claims self-defense and is charged with murder.",
   "Dustin Rose":"Rose and his childhood friend Samson Campbell were found shot to death at an industrial property days after going missing. Keyan Rundell, 17, was arrested by U.S. Marshals after a weeklong manhunt and is charged with two counts of second-degree murder.",
@@ -2621,8 +2648,8 @@ document.addEventListener("mousemove",e=>{
 });
 </script>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js" crossorigin="anonymous"></script>
 
 
 <script>
@@ -2721,10 +2748,11 @@ document.addEventListener("mousemove",e=>{
 
   // ---- Build each chart on first open of its objection ----
   window.objChartsInit = function(banner) {
+   try {
     const titleEl = banner.querySelector('.obj-banner-num');
     if (!titleEl) return;
     const num = titleEl.textContent.trim().toLowerCase();
-    if (num.indexOf('2') !== -1) {
+    if (num.indexOf('1') !== -1) {
       buildCAHomicide(); buildCADispro();
       buildNYPDOfficers();
       buildOnce('nycCombined', buildNYCCombined);
@@ -2734,6 +2762,7 @@ document.addEventListener("mousemove",e=>{
     if (num.indexOf('5') !== -1) { buildChetty(); }
     if (num.indexOf('6') !== -1) { buildVAHomicide(); buildVADispro(); }
     if (num.indexOf('7') !== -1) { buildBOP(); }
+   } catch(e) { console.error('[objections] chart init failed:', e); }
   };
 
   // ==================== CA HOMICIDE CHART (Obj 2) ====================
