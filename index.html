@@ -1563,8 +1563,8 @@ function imgFallback(el){
     <p>On July 2, in a Walgreens parking lot in El Paso, a man named Wells shot Christopher Steven three times over a handicap parking space. Two of the shots came after Steven had fallen. Steven was 32, a Marine medically retired as a lance corporal, married two years, with a honeymoon booked for September.</p>
     <p>Nicholas Wells, 26, admitted the shooting to the officers who found him outside the store carrying two guns. He is charged with murder.</p>
     <div class="pairbox">
-      <div class="pcell"><div class="plab">Accused</div><a class="plink" href="https://www.ktsm.com/news/man-dead-after-fight-escalates-to-shooting-in-west-el-paso/" title="View photo source"><div class="pwrap"><div class="pph">NW</div><img class="pimg" src="nicholas-wells-accused.jpg" alt="Nicholas Wells" loading="lazy" onerror="imgFallback(this)"></div></a><div class="pname">Nicholas Wells, 26</div></div>
       <div class="pcell"><div class="plab">Victim</div><a class="plink" href="https://www.dignitymemorial.com/obituaries/el-paso-tx/christopher-steven-12964179" title="View photo source"><div class="pwrap"><div class="pph">CS</div><img class="pimg" src="steven-victim.jpg" alt="Christopher Steven" loading="lazy" onerror="imgFallback(this)"></div></a><div class="pname">Christopher Steven, 32</div></div>
+      <div class="pcell"><div class="plab">Accused</div><a class="plink" href="https://www.ktsm.com/news/man-dead-after-fight-escalates-to-shooting-in-west-el-paso/" title="View photo source"><div class="pwrap"><div class="pph">NW</div><img class="pimg" src="nicholas-wells-accused.jpg" alt="Nicholas Wells" loading="lazy" onerror="imgFallback(this)"></div></a><div class="pname">Nicholas Wells, 26</div></div>
     </div>
     <p><b>For one month the country searched for a Wells it had no evidence about. It never learned this one&rsquo;s name. Neither did it learn the other seventeen below.</b></p>
   </div>
@@ -2569,8 +2569,8 @@ GROUPS.forEach(g=>{
     html+=`<div class="case g-${g.key}" id="${cid(c)}">
       <div class="cnum">${ri+1}</div>
       <div class="pair">
-        <div class="pcell"><div class="plab">Accused</div><a class="plink" href="${ph.sL||c.src}" title="View photo source"><div class="pwrap"><div class="pph">${ini(c.accused)}</div>${ph.s?`<img class="pimg" src="${ph.s.replace(/^img\//,'')}" alt="accused" loading="lazy" onerror="imgFallback(this)">`:""}</div></a><div class="pname">${c.accused.split(", and")[0]}</div></div>
         <div class="pcell"><div class="plab">Victim</div><a class="plink" href="${ph.vL||c.src}" title="View photo source"><div class="pwrap"><div class="pph">${ini(c.victim)}</div>${ph.v?`<img class="pimg" src="${ph.v.replace(/^img\//,'')}" alt="${c.victim}" loading="lazy" onerror="imgFallback(this)">`:""}</div></a><div class="pname">${c.victim}, ${c.vAge}</div></div>
+        <div class="pcell"><div class="plab">Accused</div><a class="plink" href="${ph.sL||c.src}" title="View photo source"><div class="pwrap"><div class="pph">${ini(c.accused)}</div>${ph.s?`<img class="pimg" src="${ph.s.replace(/^img\//,'')}" alt="accused" loading="lazy" onerror="imgFallback(this)">`:""}</div></a><div class="pname">${c.accused.split(", and")[0]}</div></div>
       </div>
       <div class="fields">
         <div class="frow"><span class="flab">Date</span><span class="fval">${fmt(c.date)}</span> &nbsp;&nbsp; <span class="flab" style="min-width:0;margin-right:8px;">Location</span><span class="fval">${c.city}</span> ${stChip(c.status)}</div>
