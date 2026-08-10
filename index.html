@@ -1491,7 +1491,24 @@
   .section-divider::before, .section-divider::after{display:none !important; content:none !important;}
   .divider-line{width:100% !important; height:1px !important; background:#23232c !important; transition:none !important;}
 
+
+  /* hero pair (other Wells card) */
+  .pairbox{display:flex;gap:18px;margin:18px 0 16px;flex-wrap:wrap;}
+  .pairbox .pcell{width:132px;}
+  .pairbox .plab{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#ff4555 !important;margin-bottom:6px;text-align:center;}
+  .pairbox .pwrap{position:relative;width:132px;height:164px;}
+  .pairbox .pimg{position:absolute;inset:0;width:132px;height:164px;object-fit:cover;border-radius:10px;border:1px solid #23232c;display:block;z-index:1;}
+  .pairbox .pph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;border-radius:10px;border:1px dashed #2a2a34;background:#14141b !important;color:#3a3a46 !important;font-size:22px;}
+  .pairbox .pname{font-size:12px;color:#e8e6e1 !important;text-align:center;margin-top:7px;line-height:1.3;}
+  .pairbox .plink:hover .pimg{border-color:#ff4555;}
+
 </style>
+<script>
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+window.addEventListener('load', function(){
+  if (!location.hash) { window.scrollTo(0,0); setTimeout(function(){ window.scrollTo(0,0); }, 60); }
+});
+</script>
 <script>
 function imgFallback(el){
   if(!el.dataset.q){
@@ -1541,6 +1558,16 @@ function imgFallback(el){
   <h2>The America that&rsquo;s ignored</h2>
   <div class="julystamp">Also July 2026</div>
   <div class="sub">Part two &middot; Interracial homicides verified to public records</div>
+  <div class="card">
+    <p style="font-family:'Playfair Display', Georgia, serif; font-size:26px; font-weight:700; color:#e8e6e1 !important; margin:0 0 12px;">The other Wells</p>
+    <p>On July 2, in a Walgreens parking lot in El Paso, a man named Wells shot Christopher Steven three times over a handicap parking space. Two of the shots came after Steven had fallen. Steven was 32, a Marine medically retired as a lance corporal, married two years, with a honeymoon booked for September.</p>
+    <p>Nicholas Wells, 26, admitted the shooting to the officers who found him outside the store carrying two guns. He is charged with murder.</p>
+    <div class="pairbox">
+      <div class="pcell"><div class="plab">Accused</div><a class="plink" href="https://www.ktsm.com/news/man-dead-after-fight-escalates-to-shooting-in-west-el-paso/" title="View photo source"><div class="pwrap"><div class="pph">NW</div><img class="pimg" src="nicholas-wells-accused.jpg" alt="Nicholas Wells" loading="lazy" onerror="imgFallback(this)"></div></a><div class="pname">Nicholas Wells, 26</div></div>
+      <div class="pcell"><div class="plab">Victim</div><a class="plink" href="https://www.dignitymemorial.com/obituaries/el-paso-tx/christopher-steven-12964179" title="View photo source"><div class="pwrap"><div class="pph">CS</div><img class="pimg" src="steven-victim.jpg" alt="Christopher Steven" loading="lazy" onerror="imgFallback(this)"></div></a><div class="pname">Christopher Steven, 32</div></div>
+    </div>
+    <p><b>For one month the country searched for a Wells it had no evidence about. It never learned this one&rsquo;s name. Neither did it learn the other seventeen below.</b></p>
+  </div>
   <div class="card">
     <p><b>How dangerous is America, really, for black Americans? Looking at the same month, July 1 through July 31, and verifying every interracial homicide against public records, in both directions. Here is what was found.</b></p>
   </div>
@@ -1612,7 +1639,7 @@ function imgFallback(el){
 </section>
 
 <footer class="wrap">
-  <p><b>Method.</b> Window: July 1 through July 31, 2026, the calendar month in which Nolan Wells was found dead; his July 6 discovery is marked on the timeline. Cases are placed by incident date; arrests and charges may postdate the window. Every row is verified against court records or official police releases plus at least two independent outlets. Race is coded from booking photos, official booking records, and published photographs, never assumed from names or third-party lists; every photo tile on a case card links to the source bearing that person's photograph. Case discovery drew on news sweeps, official releases, victim memorials, and publicly circulated case lists; no case entered this ledger on any list's say-so, and entries that failed verification were discarded. Every photograph and record behind these codings was reviewed by human eyes; nothing here was coded by algorithm or assumption. Circumstance comes from court records. A case labeled a hate crime by anyone other than a prosecutor is not coded as one here. An independent full-month sweep of mainstream and official sources on August 6 surfaced no additional verifiable cases beyond those counted.</p>
+  <p><b>Method.</b> Window: July 1 through July 31, 2026, the calendar month in which Nolan Wells was found dead; his July 6 discovery is marked on the timeline. Cases are placed by incident date; arrests and charges may postdate the window. Every row is verified against court records or official police releases plus at least two independent outlets. Race is coded from booking photos, official booking records, and published photographs, never assumed from names or third-party lists; A victim or accused person of mixed white and Hispanic ancestry is counted as white, consistent with the FBI categories the base rates above rely on; people of wholly Hispanic ancestry are tracked separately and are not counted in either column. every photo tile on a case card links to the source bearing that person's photograph. Case discovery drew on news sweeps, official releases, victim memorials, and publicly circulated case lists; no case entered this ledger on any list's say-so, and entries that failed verification were discarded. Every photograph and record behind these codings was reviewed by human eyes; nothing here was coded by algorithm or assumption. Circumstance comes from court records. A case labeled a hate crime by anyone other than a prosecutor is not coded as one here. An independent full-month sweep of mainstream and official sources on August 6 surfaced no additional verifiable cases beyond those counted.</p>
   <p><b>Exclusions.</b> The counting principle is deliberate violence directed at a person: shootings, stabbings, beatings, drownings. A death from a round fired at people counts even if it struck someone unintended; the law calls that transferred intent. A death caused by a vehicle driven drunk or in flight from police does not count in either direction, whatever the charge, because no violence was aimed at anyone; a vehicle used deliberately as a weapon against a person would. Homicides without a publicly identified suspect are not counted. Cases where race cannot yet be confirmed are held. Both directions run through the identical pipeline. The underlying dataset also tracks other-pairing victims, including a third victim of the St. Paul shooting, plus held, unsolved, and vehicular cases; those rows are recorded but not displayed in this view.</p>
   <p><b>Presumption of innocence.</b> Every accused person named here is charged, not convicted, unless a disposition is noted. Charges are allegations.</p>
   <p style="margin-top:22px;"><b>Citations.</b> Case discovery ran on sweeps of mainstream news reporting, official police and prosecutor releases, court and jail booking records, and victim memorial pages including Gun Memorial (gunmemorial.org) and the Gun Violence Archive, plus an independent full-month sweep of mainstream and official sources. Additional case leads came from two publicly circulated crime trackers, the National Conservative interracial-homicide tracker and Kenn Gividen&rsquo;s Daily Kenn list. A special thank you to both: their lists surfaced at least one case this project&rsquo;s own sweeps missed, which is counted above, and were invaluable for matching throughout. Every case above was then independently re-verified against court records, police releases, booking records, and published photographs. Entries that could not be verified were excluded.</p>
@@ -2377,7 +2404,7 @@ const CASES = [
   {date:"2026-07-11", city:"Panama City, FL", victim:"Lucas Daughtry", vAge:23, accused:"Preston Roulhac, 31", charge:"murder", dir:"bw", status:"verified", coverage:"regional + national pickup", src:"https://www.mypanhandle.com/news/local-news/bay-county/panama-city/police-identify-man-killed-in-panama-city-shooting-suspect-could-face-additional-charges/"},
   {date:"2026-07-31", city:"Lafayette, LA", victim:"Samuel Miley", vAge:15, accused:"Nicholas Williams, 20", charge:"second-degree murder; $500,000 bond", dir:"bw", status:"verified", coverage:"local", src:"https://www.kadn.com/news/crime/man-arrested-in-lafayette-shooting-that-killed-15-year-old/article_636f8e21-23f8-4ace-a067-480f17d3a352.html"},
   {date:"2026-07-03", city:"Toledo, OH", victim:"Nicholas Kuhl", vAge:43, accused:"Brayon Syph, 41", charge:"murder, felonious assault; $1.1M bond", dir:"bw", status:"verified", coverage:"local only", src:"https://www.wtol.com/article/news/crime/man-fatally-shot-suspect-brayon-syph-arrested-hours-later-driving-victims-car/512-8def1abf-4edf-453d-ab62-cf5e50b97e1f"},
-  {date:"2026-07-02", city:"El Paso, TX", victim:"Christopher Brandon Steven", vAge:32, accused:"Nicholas Wells, 26", charge:"murder; self-defense asserted", dir:"bw", status:"hold", coverage:"local + national digital pickup", src:"https://www.ktsm.com/news/man-dead-after-fight-escalates-to-shooting-in-west-el-paso/"},
+  {date:"2026-07-02", city:"El Paso, TX", victim:"Christopher Brandon Steven", vAge:32, accused:"Nicholas Wells, 26", charge:"murder; self-defense asserted", dir:"bw", status:"verified", coverage:"local + national digital pickup", src:"https://www.ktsm.com/news/man-dead-after-fight-escalates-to-shooting-in-west-el-paso/"},
   {date:"2026-07-31", city:"Portland, OR", victim:"Stephan Varlamov", vAge:30, accused:"Jacob Ryan Clement, 45", charge:"second-degree murder", dir:"wb", status:"hold", coverage:"local only", src:"https://www.portland.gov/police/news/2026/7/31/update-suspicious-death-confirmed-be-homicide-suspect-arrested-murder"},
   {date:"2026-07-04", city:"Washington, DC", victim:"Adeyinka Aderemi", vAge:55, accused:"George Bernard Shaw, 53", charge:"first-degree murder while armed; no bond", dir:"wb", status:"hold", coverage:"local only", src:"https://www.justice.gov/usao-dc/pr/northeast-dc-man-arrested-charged-july-4-shooting-death-roommate"},
   {date:"2026-07-07", city:"Casselberry, FL", victim:"Christopher Marier", vAge:42, accused:"Marquavious Wheaton, 26", charge:"second-degree murder x2 (vehicular, flight from stop)", dir:"bw", status:"vehicular", coverage:"regional", src:"https://www.wftv.com/news/local/charges-upgraded-deadly-casselberry-crash-that-killed-two-brothers/NM3VQ5IXM5CLNF5IPLOMDQQFYQ/"},
@@ -2402,7 +2429,7 @@ const SHOW_EXTRAS = false; /* set true to display other pairings, holds, and uns
 const PHOTOS = {
   "Samuel Miley":{s:"img/williams-accused.jpg", v:"img/miley-victim.jpg", sL:"https://www.kadn.com/news/crime/man-arrested-in-lafayette-shooting-that-killed-15-year-old/article_636f8e21-23f8-4ace-a067-480f17d3a352.html", vL:"https://gunmemorial.org/2026/07/31/samuel-miley"},
   "Nicholas Kuhl":{s:"img/syph-accused.jpg", v:"img/kuhl-victim.jpg"},
-  "Christopher Brandon Steven":{s:"img/nicholas-wells-accused.jpg", v:"img/steven-victim.jpg", sL:"https://www.aol.com/news/man-dead-fight-escalates-shooting-191914781.html", vL:"https://cbs4local.com/newsletter-daily/family-remembers-christopher-stevens-as-walgreens-shooting-investigation-continues"},
+  "Christopher Brandon Steven":{s:"img/nicholas-wells-accused.jpg", v:"img/steven-victim.jpg", sL:"https://www.aol.com/news/man-dead-fight-escalates-shooting-191914781.html", vL:"https://www.dignitymemorial.com/obituaries/el-paso-tx/christopher-steven-12964179"},
   "Lucas Daughtry":{s:"img/roulhac-accused.jpg", v:"img/daughtry-victim.jpg", sL:"https://www.walb.com/2026/08/05/were-gonna-take-care-this-lucas-parents-panama-city-murder-victim-pursue-legal-action-after-officer-fired/", vL:"https://gunmemorial.org/2026/07/11/lucas-delane-daughtry"},
   "Andrew Cole":{s:"img/broadnax-accused.jpg", v:"img/cole-victim.jpg", sL:"https://www.wbrc.com/2026/07/15/man-charged-with-capital-murder-irondale-double-shooting/"},
   "Dep. U.S. Marshal Drew Hanson":{s:"img/frazier-accused.jpg", v:"img/hanson-victim.jpg", sL:"https://www.kalb.com/2026/07/14/officials-release-identities-us-marshal-killed-alexandria-suspect-charged-his-death/", vL:"https://www.newsnationnow.com/crime/deputy-marshal-drew-hanson-killed-louisiana-identified/"},
@@ -2424,7 +2451,7 @@ const PHOTOS = {
 const BLURBS = {
   "Samuel Miley":"Miley was shot multiple times on Sherwood Drive on a Friday afternoon and pronounced dead at the scene. Williams was arrested days later and charged with second-degree murder, held on $500,000 bond. Police say they are still working to determine what happened between the two men before the shooting.",
   "Nicholas Kuhl":"Kuhl was found shot to death in his apartment during a welfare check; hours later police stopped Syph driving Kuhl's car with a pistol on him. He is charged with murder and felonious assault, held on $1.1 million bond. No motive has been released.",
-  "Christopher Brandon Steven":"A dispute over a handicap parking spot followed Steven into a Walgreens, where court documents say Wells threw the first punch, then shot Steven three times, twice after he fell. Wells claims self-defense and is charged with murder.",
+  "Christopher Brandon Steven":"Steven, a Marine medically retired as a lance corporal after a tour in Okinawa, was killed after a dispute over a handicap parking spot followed him into a Walgreens. Court records say Wells threw the first punch, then shot him three times, twice after he fell. Wells claims self-defense and is charged with murder. Steven is buried at Fort Bliss National Cemetery.",
   "Dustin Rose":"Rose and his childhood friend Samson Campbell were found shot to death at an industrial property days after going missing. Keyan Rundell, 17, was arrested by U.S. Marshals after a weeklong manhunt and is charged with two counts of second-degree murder.",
   "Samson Campbell":"Campbell and his childhood friend Dustin Rose were found shot to death at an industrial property days after going missing. Keyan Rundell, 17, was arrested by U.S. Marshals after a weeklong manhunt and is charged with two counts of second-degree murder.",
   "Adam Wilwerding":"Court records say Binessu, a tenant, shot three leasing-office employees over a $65 parking contract he had been told could not be changed. He is charged with three counts of second-degree murder.",
