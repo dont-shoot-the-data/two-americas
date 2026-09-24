@@ -1721,6 +1721,39 @@
   @media (max-width:640px){.collage .ct:not(.txt) .ctl{font-size:10.5px !important;}}
   .collage .ct .nm{display:inline-block; font-family:system-ui, sans-serif; font-size:13px; font-weight:800; line-height:1.2; color:#ff6b78 !important; background:rgba(10,10,14,.88) !important; border:1.5px solid #ff4555; border-radius:5px; padding:4px 8px;}
   @media (max-width:640px){.collage .ct .nm{font-size:10.5px; padding:3px 5px; border-width:1px;}}
+  @media (min-width:641px){.collage.c3{grid-template-columns:repeat(3,1fr) !important; gap:10px;}}
+  @media (max-width:640px){.collage.c3{grid-template-columns:repeat(2,1fr) !important; gap:6px;}}
+  .collage.covc .ct{aspect-ratio:4/3;} .collage.covc .ct img{object-position:top left;}
+  .collage.c3 .ct .nm{font-size:15px;}
+  .collage.hcol.c3 .ct.txt .cth{font-size:19px !important; -webkit-line-clamp:7;}
+  .collage.hcol.c3 .ct.txt .cto{font-size:11.5px;} .collage.hcol.c3 .ct.txt .ctd{font-size:11px;}
+  @media (max-width:640px){.collage.c3 .ct .nm{font-size:11px;} .collage.hcol.c3 .ct.txt .cth{font-size:13px !important; -webkit-line-clamp:6;}}
+  a.imglink{display:block; border-bottom:none !important; cursor:pointer;}
+  a.imglink img{transition:transform .18s ease, box-shadow .18s ease;}
+  @media (hover:hover){a.imglink:hover img{transform:translateY(-3px); box-shadow:0 12px 28px rgba(0,0,0,.5);}}
+  .cvcard .bhead{text-align:center;}
+  .cvpair.one{margin-left:auto !important; margin-right:auto !important; max-width:380px;}
+  .cvpair.one figcaption{text-align:center;}
+  .pairbox{display:flex !important; justify-content:center !important; gap:28px;}
+  .cgroups{display:grid; grid-template-columns:2fr 1fr 1fr; gap:18px; margin:10px 0 22px;}
+  .cg .cgl{font-family:'Playfair Display', Georgia, serif !important; font-weight:900; font-size:clamp(20px,2.6vw,26px) !important; color:#ffffff !important; margin:0 0 10px !important;}
+  .cgi{display:grid; grid-template-columns:1fr; gap:10px;} .cgi.two{grid-template-columns:1fr 1fr;}
+  .cgi .ct{position:relative; display:block; aspect-ratio:3/4; overflow:hidden; border-radius:10px; border:1px solid #23232c !important; cursor:pointer; transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;}
+  .cgi .ct img{width:100%; height:100%; object-fit:cover; object-position:top center; display:block;}
+  .cgi .ct .ctl{position:absolute; left:0; right:0; bottom:0; padding:22px 8px 8px; background:linear-gradient(transparent, rgba(0,0,0,.9)) !important;}
+  .cgi .ct .nm{display:inline-block; font-family:system-ui, sans-serif; font-size:13px; font-weight:800; color:#ff6b78 !important; background:rgba(10,10,14,.88) !important; border:1.5px solid #ff4555; border-radius:5px; padding:4px 8px;}
+  @media (hover:hover){.cgi .ct:hover{transform:translateY(-4px); border-color:#ff4555 !important; box-shadow:0 14px 30px rgba(0,0,0,.6);}}
+  @media (max-width:640px){.cgroups{grid-template-columns:1fr;} .cgi, .cgi.two{grid-template-columns:1fr 1fr;} .cgi .ct{aspect-ratio:4/5;}}
+  #lbx{position:fixed; inset:0; z-index:50; background:rgba(5,5,8,.92) !important; display:none; align-items:center; justify-content:center; padding:20px;}
+  #lbx.on{display:flex;}
+  #lbx .lbin{max-width:720px; width:100%; max-height:92vh; overflow:auto; background:#121218 !important; border:1px solid #3a3a46; border-radius:12px; padding:14px;}
+  #lbx .lbimg a{display:block; border-bottom:none !important; cursor:pointer;}
+  #lbx img{width:100%; border-radius:8px; display:block; margin-bottom:10px;}
+  #lbx .lbc{font-family:system-ui, sans-serif; font-size:15px; line-height:1.5; color:#e8e6e1 !important;}
+  #lbx .lbc .cttag{color:#ff4555 !important; font-weight:700;}
+  #lbx .lbx-x{float:right; background:none !important; border:none; color:#e8e6e1 !important; font-size:26px; cursor:pointer; line-height:1;}
+  #lbx .lbgo{display:inline-block; margin-top:12px; font-weight:700; font-size:15px;}
+  #lbx .lbhint{font-family:'JetBrains Mono', monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:#8a8894 !important; margin-top:8px;}
 </style>
 <script>
 if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
@@ -1757,8 +1790,15 @@ function imgFallback(el){
 <section class="wrap reveal in" id="s1">
   <h2>The story you know</h2>
   <div class="card">
-    <img class="igshot wide" src="shots/coverage.jpg" alt="National coverage of Nolan Wells" loading="lazy">
-    <p class="srcline" style="margin-top:-8px;text-align:center;">A sample of the national coverage: CNN, People, Rolling Stone, Newsweek, NBC, ABC</p>
+    <div class="collage c3 covc">
+      <a target="_blank" rel="noopener" class="ct wide" href="https://www.cnn.com/2026/07/09/us/nolan-xavier-wells-what-we-know" data-cap="&lt;b&gt;CNN&lt;/b&gt;"><img src="shots/cov-cnn.jpg" alt="CNN" loading="lazy"><span class="ctl"><span class="nm">CNN</span></span></a>
+      <a target="_blank" rel="noopener" class="ct wide" href="https://people.com/nolan-wells-mom-says-planning-teen-s-funeral-does-not-feel-real-as-sheriff-warns-investigation-should-not-be-rushed-12018939" data-cap="&lt;b&gt;People&lt;/b&gt;"><img src="shots/cov-people.jpg" alt="People" loading="lazy"><span class="ctl"><span class="nm">People</span></span></a>
+      <a target="_blank" rel="noopener" class="ct wide" href="https://www.rollingstone.com/culture/culture-news/nolan-wells-ben-crump-al-sharpton-press-conference-1235591827/" data-cap="&lt;b&gt;Rolling Stone&lt;/b&gt;"><img src="shots/cov-rollingstone.jpg" alt="Rolling Stone" loading="lazy"><span class="ctl"><span class="nm">Rolling Stone</span></span></a>
+      <a target="_blank" rel="noopener" class="ct wide" href="https://www.newsweek.com/nolan-wells-investigation-three-charged-allegations-explained-12293028" data-cap="&lt;b&gt;Newsweek&lt;/b&gt;"><img src="shots/cov-newsweek.jpg" alt="Newsweek" loading="lazy"><span class="ctl"><span class="nm">Newsweek</span></span></a>
+      <a target="_blank" rel="noopener" class="ct wide" href="https://www.nbcnews.com/news/us-news/beach-party-call-help-missing-pictures-day-nolan-wells-death-rcna588747" data-cap="&lt;b&gt;NBC News&lt;/b&gt;"><img src="shots/cov-nbc.jpg" alt="NBC News" loading="lazy"><span class="ctl"><span class="nm">NBC News</span></span></a>
+      <a target="_blank" rel="noopener" class="ct wide" href="https://abcnews.com/US/hurt-nolan-friend-late-mississippi-teen-nolan-wells/story?id=134703876" data-cap="&lt;b&gt;ABC News&lt;/b&gt;"><img src="shots/cov-abc.jpg" alt="ABC News" loading="lazy"><span class="ctl"><span class="nm">ABC News</span></span></a>
+    </div>
+    <p class="srcline" style="margin-top:-8px;text-align:center;">A sample of the national coverage. Click any story to enlarge it, then again to open it.</p>
     <ul class="blist">
       <li>July 4: Nolan Wells, 18, boats to Horn Island, Mississippi with white friends and stays behind.</li>
       <li>July 6: found in the water.</li>
@@ -1774,12 +1814,11 @@ function imgFallback(el){
 <section class="wrap reveal in" id="s4">
   <div class="partlab"><span>Part One</span>Eleven Weeks of Incitement</div>
   <div class="sub">In their own words</div>
-  <p class="chint">Click any post to open it.</p>
-  <div class="collage">
+  <p class="chint">Click any post to enlarge it. Click again to open the source.</p>
+  <div class="collage c3">
     <a target="_blank" rel="noopener" class="ct" href="https://x.com/tariqnasheed/status/2074175650395767250" data-cap="&lt;b&gt;Tariq Nasheed&lt;/b&gt; &amp;middot; 374,000 followers, July 6, the day Wells was found: &amp;ldquo;This story is sounding way too familiar and highly suspicious.&amp;rdquo; &amp;middot; &lt;a href=&quot;https://x.com/tariqnasheed/status/2074175650395767250&quot;&gt;post&lt;/a&gt;"><img src="shots/x-nasheed.jpg" alt="Tariq Nasheed" loading="lazy"><span class="ctl"><span class="nm">Tariq Nasheed</span></span></a>
     <a target="_blank" rel="noopener" class="ct" href="https://x.com/RepRashida/status/2075656518440013864" data-cap="&lt;b&gt;Rep. Rashida Tlaib&lt;/b&gt; &amp;middot; July 10: &amp;ldquo;the deadly reality of how anti-Blackness and white supremacy continue to endanger Black youth&amp;rdquo; &amp;middot; &lt;a href=&quot;https://x.com/RepRashida/status/2075656518440013864&quot;&gt;post&lt;/a&gt;"><img src="shots/x-tlaib.jpg" alt="Rep. Rashida Tlaib" loading="lazy"><span class="ctl"><span class="nm">Rep. Rashida Tlaib</span></span></a>
     <a target="_blank" rel="noopener" class="ct" href="https://www.instagram.com/p/DbUF7zLNWKP/" data-cap="&lt;b&gt;Ms. Rachel&lt;/b&gt; &amp;middot; to 5.2 million followers, July 28 &amp;middot; &lt;a href=&quot;https://www.instagram.com/p/DbUF7zLNWKP/&quot;&gt;post&lt;/a&gt;"><img src="shots/x-rachel.jpg" alt="Ms. Rachel" loading="lazy"><span class="ctl"><span class="nm">Ms. Rachel</span></span></a>
-    <a target="_blank" rel="noopener" class="ct" href="https://www.instagram.com/reel/DczMNPMB9Iz/" data-cap="&lt;b&gt;Ms. Rachel&lt;/b&gt; &amp;middot; again, Sept 2: &amp;ldquo;We are not going to stop talking about Nolan Wells.&amp;rdquo; 255,000 likes &amp;middot; &lt;a href=&quot;https://www.instagram.com/reel/DczMNPMB9Iz/&quot;&gt;post&lt;/a&gt;"><img src="shots/x-rachel2.jpg" alt="Ms. Rachel" loading="lazy"><span class="ctl"><span class="nm">Ms. Rachel</span></span></a>
     <a target="_blank" rel="noopener" class="ct" href="https://x.com/AttorneyCrump/status/2079971571221893558" data-cap="&lt;b&gt;Ben Crump&lt;/b&gt; &amp;middot; 620,000 followers, July 22 &amp;middot; &lt;a href=&quot;https://x.com/AttorneyCrump/status/2079971571221893558&quot;&gt;post&lt;/a&gt;"><img src="shots/x-crump2.jpg" alt="Ben Crump" loading="lazy"><span class="ctl"><span class="nm">Ben Crump</span></span></a>
     <a target="_blank" rel="noopener" class="ct" href="https://x.com/rolandsmartin/status/2076744787483594818" data-cap="&lt;b&gt;Roland Martin&lt;/b&gt; &amp;middot; 709,000 followers, July 13 &amp;middot; &lt;a href=&quot;https://x.com/rolandsmartin/status/2076744787483594818&quot;&gt;post&lt;/a&gt;"><img src="shots/x-roland.jpg" alt="Roland Martin" loading="lazy"><span class="ctl"><span class="nm">Roland Martin</span></span></a>
     <a target="_blank" rel="noopener" class="ct" href="https://x.com/RepJeffries/status/2079310941938704499" data-cap="&lt;b&gt;Rep. Hakeem Jeffries&lt;/b&gt; &amp;middot; House Democratic Leader, 1 million followers, July 20: a &amp;ldquo;criminal investigation&amp;rdquo; &amp;middot; &lt;a href=&quot;https://x.com/RepJeffries/status/2079310941938704499&quot;&gt;post&lt;/a&gt;"><img src="shots/x-jeffries.jpg" alt="Rep. Hakeem Jeffries" loading="lazy"><span class="ctl"><span class="nm">Rep. Hakeem Jeffries</span></span></a>
@@ -1787,8 +1826,6 @@ function imgFallback(el){
     <a target="_blank" rel="noopener" class="ct" href="https://abc17news.com/news/national-world/cnn-national/2026/09/01/the-rev-al-sharpton-says-he-never-accused-nolan-wells-friends-of-a-crime-rejects-defamation-threat/" data-cap="&lt;b&gt;Rev. Al Sharpton&lt;/b&gt; &amp;middot; &amp;ldquo;Black boy (who) goes out with three White kids. Three White kids come back.&amp;rdquo; Aug 13 &amp;middot; &lt;a href=&quot;https://abc17news.com/news/national-world/cnn-national/2026/09/01/the-rev-al-sharpton-says-he-never-accused-nolan-wells-friends-of-a-crime-rejects-defamation-threat/&quot;&gt;source&lt;/a&gt;"><img src="shots/a-sharpton.jpg" alt="Rev. Al Sharpton" loading="lazy"><span class="ctl"><span class="nm">Rev. Al Sharpton</span></span></a>
     <a target="_blank" rel="noopener" class="ct" href="https://thegrio.com/2026/07/15/rep-jasmine-crockett-calls-out-racial-components-in-nolan-wells-case/" data-cap="&lt;b&gt;Rep. Jasmine Crockett&lt;/b&gt; &amp;middot; &amp;ldquo;You&amp;rsquo;d have to be blind not to question potentially what is happening.&amp;rdquo; July 14 &amp;middot; &lt;a href=&quot;https://thegrio.com/2026/07/15/rep-jasmine-crockett-calls-out-racial-components-in-nolan-wells-case/&quot;&gt;source&lt;/a&gt;"><img src="shots/a-crockett.jpg" alt="Rep. Jasmine Crockett" loading="lazy"><span class="ctl"><span class="nm">Rep. Jasmine Crockett</span></span></a>
     <a target="_blank" rel="noopener" class="ct" href="https://x.com/etanthomas36/status/2075686501296300181" data-cap="&lt;b&gt;Etan Thomas&lt;/b&gt; &amp;middot; former NBA player, July 10. Named three friends and accused them of deleting Wells&amp;rsquo; texts. The DA: Crump&amp;rsquo;s own phone report found &lt;b&gt;nothing deleted&lt;/b&gt; &amp;middot; &lt;a href=&quot;https://x.com/etanthomas36/status/2075686501296300181&quot;&gt;post&lt;/a&gt;"><img src="shots/x-etan.jpg" alt="Etan Thomas" loading="lazy"><span class="ctl"><span class="nm">Etan Thomas</span></span></a>
-    <a target="_blank" rel="noopener" class="ct" href="https://x.com/rolandsmartin/status/2102228763346186620" data-cap="&lt;b&gt;Roland Martin&lt;/b&gt; &amp;middot; the night of the ruling, Sept 21 &amp;middot; &lt;a href=&quot;https://x.com/rolandsmartin/status/2102228763346186620&quot;&gt;post&lt;/a&gt;"><img src="shots/x-roland2.jpg" alt="Roland Martin" loading="lazy"><span class="ctl"><span class="nm">Roland Martin</span></span></a>
-    <a target="_blank" rel="noopener" class="ct" href="https://www.instagram.com/p/Ddkvrb_BpR_/" data-cap="&lt;b&gt;D.L. Hughley&lt;/b&gt; &amp;middot; the night of the ruling &amp;middot; &lt;a href=&quot;https://www.instagram.com/p/Ddkvrb_BpR_/&quot;&gt;post&lt;/a&gt;"><img src="shots/x-hughley.jpg" alt="D.L. Hughley" loading="lazy"><span class="ctl"><span class="nm">D.L. Hughley</span></span></a>
     <a target="_blank" rel="noopener" class="ct" href="https://x.com/KristenClarkeJD/status/2102248722075623549" data-cap="&lt;b&gt;Kristen Clarke&lt;/b&gt; &amp;middot; NAACP general counsel, former head of the Justice Department&amp;rsquo;s Civil Rights Division, the night of the ruling &amp;middot; &lt;a href=&quot;https://x.com/KristenClarkeJD/status/2102248722075623549&quot;&gt;post&lt;/a&gt;"><img src="shots/x-clarke.jpg" alt="Kristen Clarke" loading="lazy"><span class="ctl"><span class="nm">Kristen Clarke</span></span></a>
     <a target="_blank" rel="noopener" class="ct" href="https://x.com/RepWilson/status/2100938530826367042" data-cap="&lt;b&gt;Rep. Frederica Wilson&lt;/b&gt; &amp;middot; Sept 18, three days before the ruling: &amp;ldquo;Our young black boys are being murdered, and nobody seems to care.&amp;rdquo; &amp;middot; &lt;a href=&quot;https://x.com/RepWilson/status/2100938530826367042&quot;&gt;post&lt;/a&gt;"><img src="shots/x-fwilson.jpg" alt="Rep. Frederica Wilson" loading="lazy"><span class="ctl"><span class="nm">Rep. Frederica Wilson</span></span></a>
   </div>
@@ -1800,8 +1837,8 @@ function imgFallback(el){
   <div class="julystamp">September 10, 2026</div>
   <div class="sub">“Modern-day lynchings”</div>
   <p class="lede">The letter came in week ten. The hangings it counted went back to January.</p>
-  <p class="chint">The officials and activists. Click any post to open it.</p>
-  <div class="collage c4">
+  <p class="chint">The officials and activists. Click any post to enlarge it. Click again to open the source.</p>
+  <div class="collage c3">
     <a target="_blank" rel="noopener" class="ct" href="https://x.com/RepPressley/status/2098122677424640000" data-cap="&lt;b&gt;Rep. Ayanna Pressley&lt;/b&gt; &amp;middot; letter signed by nearly 60 House Democrats &amp;middot; &lt;a href=&quot;https://x.com/RepPressley/status/2098122677424640000&quot;&gt;post&lt;/a&gt;"><img src="shots/x-pressley.jpg" alt="Rep. Ayanna Pressley" loading="lazy"><span class="ctl"><span class="nm">Rep. Ayanna Pressley</span></span></a>
     <a target="_blank" rel="noopener" class="ct" href="https://x.com/RepAOC/status/2098170460013834536" data-cap="&lt;b&gt;Rep. Alexandria Ocasio-Cortez&lt;/b&gt; &amp;middot; same day &amp;middot; &lt;a href=&quot;https://x.com/RepAOC/status/2098170460013834536&quot;&gt;post&lt;/a&gt;"><img src="shots/x-aoc.jpg" alt="Rep. Alexandria Ocasio-Cortez" loading="lazy"><span class="ctl"><span class="nm">Rep. Alexandria Ocasio-Cortez</span></span></a>
     <a target="_blank" rel="noopener" class="ct" href="https://x.com/BerniceKing/status/2086064772307395002" data-cap="&lt;b&gt;Bernice King&lt;/b&gt; &amp;middot; 700,000 followers, Aug 8, named her and pointed to &amp;ldquo;painful history&amp;rdquo; &amp;middot; &lt;a href=&quot;https://x.com/BerniceKing/status/2086064772307395002&quot;&gt;post&lt;/a&gt;"><img src="shots/x-bking.jpg" alt="Bernice King" loading="lazy"><span class="ctl"><span class="nm">Bernice King</span></span></a>
@@ -1833,7 +1870,7 @@ function imgFallback(el){
   </div>
   <div class="card">
     <p class="bhead" style="margin-top:0;">Tasia Fortune</p>
-    <img class="igshot" src="shots/fortune-only.jpg" alt="Tasia Fortune" loading="lazy" style="max-width:320px;">
+    <a href="https://www.foxnews.com/media/media-highlights-race-mississippi-hanging-victim-tasia-fortune-not-race-suspected-killer" target="_blank" rel="noopener" class="imglink"><img class="igshot" src="shots/fortune-only.jpg" alt="Tasia Fortune" loading="lazy" style="max-width:320px;"></a>
     <ul class="blist">
       <li><b>Aug 3:</b> Tasia Fortune, 29, a Black mother, is found hanging from a tree behind a vacant home in Jackson, Mississippi.</li>
       <li><b>Aug 11:</b> CNN: <b>“A Black woman was found hanging from a tree in Mississippi.”</b> <a href="https://www.cnn.com/2026/08/11/us/mississippi-woman-hanging">CNN</a></li>
@@ -1869,7 +1906,7 @@ function imgFallback(el){
   <div class="julystamp" style="margin-top:34px;color:#e8e6e1 !important;">Nolan Wells: the grand jury finds no crime</div>
   <div class="sub">September 21, 2026</div>
   <div class="card">
-    <img class="igshot" src="shots/a-congresswoman.jpg" alt="No indictments handed down by Jackson County grand jury in death of Nolan Wells" loading="lazy">
+    <a href="https://magnoliatribune.com/2026/09/22/no-indictments-handed-down-by-jackson-county-grand-jury-in-death-of-nolan-wells/" target="_blank" rel="noopener" class="imglink"><img class="igshot" src="shots/a-congresswoman.jpg" alt="No indictments handed down by Jackson County grand jury in death of Nolan Wells" loading="lazy"></a>
     <p class="bhead" style="margin-top:6px;">What District Attorney Angel Myers-McIlrath found</p>
     <ul class="blist">
       <li>23 jurors, <b>five of them Black</b>, heard more than 40 witnesses. <b>No one charged.</b> The vote was unanimous.</li>
@@ -1919,7 +1956,7 @@ function imgFallback(el){
   </div>
   <div class="julystamp" style="margin-top:34px;">Tasia Fortune hanging: a Black man is charged</div>
   <div class="card">
-    <img class="igshot wide" src="shots/fortune-ratliff.jpg" alt="Jarques Ratliff and Tasia Fortune" loading="lazy">
+    <a href="https://www.foxnews.com/media/media-highlights-race-mississippi-hanging-victim-tasia-fortune-not-race-suspected-killer" target="_blank" rel="noopener" class="imglink"><img class="igshot wide" src="shots/fortune-ratliff.jpg" alt="Jarques Ratliff and Tasia Fortune" loading="lazy"></a>
     <p class="srcline" style="margin-top:-8px;text-align:center;">Jarques Ratliff, 51, charged with her murder, and Tasia Fortune, 29 (via <a href="https://www.foxnews.com/media/media-highlights-race-mississippi-hanging-victim-tasia-fortune-not-race-suspected-killer">Fox News</a>)</p>
     <ul class="blist">
       <li><b>Aug 8:</b> police name a person of interest: <b>the father of her son.</b> <a href="https://www.wlbt.com/2026/08/08/alleged-person-interest-death-investigation-tasia-fortune-arrested-unrelated-charge/">WLBT</a></li>
@@ -1933,8 +1970,8 @@ function imgFallback(el){
   <div class="julystamp" style="margin-top:40px;">They knew a Black man was arrested. They ran headlines that hid it.</div>
   <div class="sub">After her accused killer’s arrest, September 11</div>
   <div class="card hwall">
-    <p class="hwsub"><b>Every headline here ran after a Black man was charged. Each one named the victim’s race or the hanging. None said the man charged is Black.</b> Click any headline to read the story.</p>
-    <div class="collage hcol">
+    <p class="hwsub"><b>Every headline here ran after a Black man was charged. Each one named the victim’s race or the hanging. None said the man charged is Black.</b> Click any headline to enlarge it, then again to read the story.</p>
+    <div class="collage hcol c3">
       <a target="_blank" rel="noopener" class="ct hl txt" href="https://abc7ny.com/post/jackson-mississippi-police-arrest-man-homicide-tasia-fortune-black-woman-found-hanging-tree/19821475/" data-cap="&lt;b&gt;ABC7 New York (AP), and ABC stations in L.A., San Francisco, Philadelphia, Houston &amp;middot; Sept 11&lt;/b&gt;&lt;br&gt;&amp;ldquo;Mississippi police arrest man in death of Tasia Fortune, Black woman found hanging from tree&amp;rdquo;&lt;br&gt;&lt;span class=&quot;cttag&quot;&gt;Suspect&amp;rsquo;s race: never mentioned&lt;/span&gt;" data-img="shots/tf-h-abc7.jpg"><span class="cto">ABC7 New York</span><span class="cth">“Mississippi police arrest man in death of Tasia Fortune, Black woman found hanging from tree”</span><span class="ctd">Sept 11 · <b>not in headline: suspect is Black</b></span></a>
       <a target="_blank" rel="noopener" class="ct hl txt" href="https://www.huffpost.com/entry/man-arrested-in-hanging-homicide-of-29-year-old-black-mother-tasia-fortune_n_6aa48521e4b0298845cc6edd" data-cap="&lt;b&gt;HuffPost &amp;middot; Sept 11&lt;/b&gt;&lt;br&gt;&amp;ldquo;Man Arrested In Hanging Homicide Of 29-Year-Old Black Mother, Tasia Fortune&amp;rdquo;&lt;br&gt;&lt;span class=&quot;cttag&quot;&gt;Suspect&amp;rsquo;s race: never mentioned&lt;/span&gt;" data-img="shots/tf-huff912.jpg"><span class="cto">HuffPost</span><span class="cth">“Man Arrested In Hanging Homicide Of 29-Year-Old Black Mother, Tasia Fortune”</span><span class="ctd">Sept 11 · <b>not in headline: suspect is Black</b></span></a>
       <a target="_blank" rel="noopener" class="ct hl txt" href="https://www.newsweek.com/tasia-fortune-questions-remain-over-black-woman-found-hanging-from-tree-12425080" data-cap="&lt;b&gt;Newsweek &amp;middot; Sept 11&lt;/b&gt;&lt;br&gt;&amp;ldquo;Tasia Fortune: Arrest Made After Black Woman Found Hanging From Tree&amp;rdquo;&lt;br&gt;&lt;span class=&quot;cttag&quot;&gt;Suspect&amp;rsquo;s race: never mentioned. Body: &amp;ldquo;Mississippi&amp;rsquo;s history of lynchings and racial violence&amp;rdquo;&lt;/span&gt;" data-img="shots/tf-h-nwk.jpg"><span class="cto">Newsweek</span><span class="cth">“Tasia Fortune: Arrest Made After Black Woman Found Hanging From Tree”</span><span class="ctd">Sept 11 · <b>not in headline: suspect is Black</b></span></a>
@@ -2428,11 +2465,10 @@ function imgFallback(el){
   </div>
   <div class="card concl">
     <p class="conclhead">Conclusion</p>
-    <div class="cthumbs">
-      <figure><img src="shots/x-jeffries.jpg" alt="Hakeem Jeffries" loading="lazy"><figcaption>The government</figcaption></figure>
-      <figure><img src="shots/x-aoc.jpg" alt="Alexandria Ocasio-Cortez" loading="lazy"><figcaption>&nbsp;</figcaption></figure>
-      <figure><img src="shots/coverage.jpg" alt="National coverage" loading="lazy"><figcaption>The media</figcaption></figure>
-      <figure><img src="shots/x-rachel.jpg" alt="Ms. Rachel" loading="lazy"><figcaption>Celebrities</figcaption></figure>
+    <div class="cgroups">
+      <div class="cg"><p class="cgl">The government</p><div class="cgi two"><a target="_blank" rel="noopener" class="ct" href="https://x.com/RepJeffries/status/2079310941938704499" data-cap="&lt;b&gt;Hakeem Jeffries&lt;/b&gt;"><img src="shots/x-jeffries.jpg" alt="Hakeem Jeffries" loading="lazy"><span class="ctl"><span class="nm">Hakeem Jeffries</span></span></a><a target="_blank" rel="noopener" class="ct" href="https://x.com/RepAOC/status/2098170460013834536" data-cap="&lt;b&gt;Alexandria Ocasio-Cortez&lt;/b&gt;"><img src="shots/x-aoc.jpg" alt="Alexandria Ocasio-Cortez" loading="lazy"><span class="ctl"><span class="nm">Alexandria Ocasio-Cortez</span></span></a></div></div>
+      <div class="cg"><p class="cgl">The media</p><div class="cgi"><a target="_blank" rel="noopener" class="ct" href="https://www.cnn.com/2026/07/09/us/nolan-xavier-wells-what-we-know" data-cap="&lt;b&gt;CNN&lt;/b&gt;"><img src="shots/cov-cnn.jpg" alt="CNN" loading="lazy"><span class="ctl"><span class="nm">CNN</span></span></a></div></div>
+      <div class="cg"><p class="cgl">Celebrities</p><div class="cgi"><a target="_blank" rel="noopener" class="ct" href="https://www.instagram.com/p/DbUF7zLNWKP/" data-cap="&lt;b&gt;Ms. Rachel&lt;/b&gt;"><img src="shots/x-rachel.jpg" alt="Ms. Rachel" loading="lazy"><span class="ctl"><span class="nm">Ms. Rachel</span></span></a></div></div>
     </div>
     <p>The government, the media, and the celebrities told one story all summer: white Americans hunting black Americans. The House Democratic Leader demanded a criminal investigation into what a grand jury found was a drowning. Nearly 60 members of Congress signed a letter invoking lynching over a string of hangings, most already ruled suicides; its leaders called them “modern-day lynchings.” A children’s star told five million followers the case would be different if the races were reversed.</p>
     <p>The records say the opposite. In the month Nolan Wells died, <span id="concl-bw">28</span> white Americans were killed by black suspects. <span id="concl-wb">4</span> black Americans were killed by white suspects. The data is ugly, and almost no one wants to look at it. We are only putting it in front of you.</p>
@@ -2796,8 +2832,28 @@ document.addEventListener("click",e=>{
   document.querySelectorAll("#lbx").forEach(x=>x.remove());
  }; if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",go); else go();
 })();
+/* tiles: first click enlarges, second click opens the story */
+(function(){ const go=function(){
+  document.querySelectorAll("#lbx").forEach(x=>x.remove());
+  const lb=document.createElement("div"); lb.id="lbx";
+  lb.innerHTML='<div class="lbin"><button class="lbx-x" aria-label="Close">&times;</button><div class="lbimg"></div><div class="lbc"></div><a class="lbgo" target="_blank" rel="noopener">Open the story &#8599;</a><div class="lbhint">Click the image or the link to open the source</div></div>';
+  document.body.appendChild(lb);
+  const close=()=>lb.classList.remove("on");
+  lb.addEventListener("click",e=>{ if(e.target===lb||e.target.classList.contains("lbx-x")) close(); });
+  document.addEventListener("keydown",e=>{ if(e.key==="Escape") close(); });
+  document.querySelectorAll(".collage .ct, .cgi .ct").forEach(t=>t.addEventListener("click",e=>{
+    e.preventDefault();
+    const href=t.getAttribute("href");
+    const im=t.dataset.img || (t.querySelector("img")&&t.querySelector("img").getAttribute("src"));
+    lb.querySelector(".lbimg").innerHTML= im ? '<a href="'+href+'" target="_blank" rel="noopener"><img src="'+im+'" alt=""></a>' : "";
+    lb.querySelector(".lbc").innerHTML=t.dataset.cap||"";
+    lb.querySelector(".lbgo").href=href;
+    lb.classList.add("on");
+  }));
+ }; if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",go); else go();
+})();
 </script>
 
 
 
-</body></html>
+<div id="lbx"><div class="lbin"><button class="lbx-x" aria-label="Close">×</button><div class="lbimg"></div><div class="lbc"></div><a class="lbgo" target="_blank" rel="noopener">Open the story ↗</a><div class="lbhint">Click the image or the link to open the source</div></div></div></body></html>
